@@ -13,6 +13,8 @@ Customer (1) ── (N) Order (1) ── (N) OrderItem (N) ── (1) Product (N
 3. **Spring AI** takes the AI context and human natural language questions regarding the underlying data model (delivered by REST endpoint) and processes it with use of LLM into the valid SQL query.
 4. **Spring Web** REST endpoint is responsible for receiving natural language question, processing it through the pipeline and returning the results. By default the REST endpoint listens on port 8080. You are free to use any client tool you like or use simple curl to communicate with it.
 
+**For example:** the following natural language question: **"Which customers have orders in status shipped for products, which belong to category Electronics?"** will be transformed into SQL statement using this curl command:
+
 ```curl
 curl --location 'http://localhost:8080/aiGenQuery/generate' \
 --header 'Content-Type: text/plain' \
